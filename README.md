@@ -8,9 +8,48 @@ Leve em segundo plano (cerca de 100 MB de memória e CPU zerada parado), com his
 
 ---
 
-## Instalação (passo a passo)
+## Instalar com o Claude Code (para quem não programa)
 
-Funciona no **Windows 10 e 11**.
+Funciona no **Windows 10 e 11**. Você não precisa digitar nenhum comando: o Claude Code faz a instalação por você.
+
+### 1. Abra o Claude Code
+
+1. Baixe o app do Claude em https://claude.ai/download e instale.
+2. Entre com a sua conta do Claude (o Claude Code precisa de um plano pago, como o Pro).
+3. No app, clique na aba **Code**.
+4. Escolha uma pasta para trabalhar, por exemplo **Documentos**.
+
+### 2. Cole este pedido e envie
+
+Copie o texto abaixo inteiro, cole na caixa de mensagem do Claude Code e aperte **Enter**:
+
+```text
+Instale para mim o app DigitAI deste repositório: https://github.com/sparo-demonstracao/digitai
+
+Eu não sei programar, então faça tudo por mim e me explique em português simples o que está fazendo:
+1. Veja se o Node.js (versão LTS) e o Git estão instalados. Se faltar algum, instale com o winget (OpenJS.NodeJS.LTS e Git.Git).
+2. Baixe o repositório para a pasta Documentos\digitai.
+3. Dentro da pasta, rode "npm install" e depois "npm run build".
+4. Crie na minha Área de Trabalho um atalho chamado "DigitAI" que abre o arquivo DigitAI.vbs da pasta.
+5. Abra o app pelo atalho.
+
+Não me peça a chave de API aqui no chat: eu vou colar a chave direto na tela de Configurações do app.
+No final, me diga onde ficou a pasta e como abrir o app de novo.
+```
+
+Durante a instalação, o Claude Code pode pedir permissão para rodar comandos ou instalar programas. É normal: clique em **Permitir**. Se ele fizer alguma pergunta, responda com as suas palavras mesmo.
+
+Quando terminar, o painel do DigitAI abre na tela. Agora siga a parte [Como colocar sua chave de API](#como-colocar-sua-chave-de-api) logo abaixo.
+
+> **Importante:** nunca cole a sua chave de API na conversa com o Claude Code (nem com nenhuma IA). O lugar dela é só a tela de Configurações do DigitAI.
+
+Se algo der errado no meio do caminho, é só escrever para o Claude Code o que apareceu na tela (por exemplo: "deu erro, pode resolver?") que ele tenta de novo.
+
+---
+
+## Instalação manual (passo a passo)
+
+Se você prefere fazer sem o Claude Code:
 
 ### 1. Instale o Node.js
 
