@@ -1,0 +1,10 @@
+node_modules/
+out/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+
+# Anotações internas de pesquisa, não vão para o repositório público
+docs/

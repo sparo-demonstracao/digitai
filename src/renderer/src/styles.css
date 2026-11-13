@@ -1,0 +1,257 @@
+:root {
+  --pill-bg: rgba(18, 18, 20, 0.92);
+  --pill-border: rgba(255, 255, 255, 0.14);
+  --pill-idle: rgba(18, 18, 20, 0.55);
+  --fg: #f4f4f5;
+  --error: #f87171;
+  --ok: #4ade80;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Segoe UI Variable Text', 'Segoe UI', system-ui, sans-serif;
+}
+
+.stage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--pill-border);
+  background: var(--pill-bg);
+  color: var(--fg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+  transition:
+    width 180ms ease,
+    height 180ms ease,
+    background-color 180ms ease,
+    opacity 180ms ease;
+  width: 128px;
+  height: 34px;
+}
+
+/* Microfone travado: cadeado, onda e o tempo gravado. */
+.pill--locked {
+  width: 196px;
+  gap: 10px;
+}
+
+.lock {
+  flex: none;
+  color: var(--fg);
+  opacity: 0.85;
+}
+
+.elapsed {
+  min-width: 34px;
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: rgba(244, 244, 245, 0.78);
+}
+
+.elapsed--ending {
+  color: #fbbf24;
+}
+
+/* Parada, a barrinha some: só aparece gravando, processando ou com algum aviso. */
+.pill--idle {
+  width: 44px;
+  height: 8px;
+  background: var(--pill-idle);
+  box-shadow: none;
+  opacity: 0;
+}
+
+.pill--error,
+.pill--info {
+  width: auto;
+  max-width: 320px;
+  height: auto;
+  min-height: 34px;
+  padding: 7px 16px;
+  border-radius: 17px;
+}
+
+.pill--error {
+  border-color: rgba(248, 113, 113, 0.5);
+}
+
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 24px;
+}
+
+.wave span {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--fg);
+  transition: height 60ms linear;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--fg);
+  animation: pulse 900ms ease-in-out infinite;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.dots span:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.check {
+  color: var(--ok);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.message {
+  font-size: 12.5px;
+  line-height: 1.35;
+  text-align: center;
+  color: var(--fg);
+}
+
+/* ---------- cartão (ex.: transcrição pronta depois de uma nova tentativa) ---------- */
+
+.card {
+  width: 380px;
+  padding: 12px 14px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--pill-border);
+  background: var(--pill-bg);
+  color: var(--fg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  animation: card-in 180ms ease-out;
+  user-select: none;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card__title {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ok);
+}
+
+.card--erro .card__title {
+  color: var(--error);
+}
+
+.card__close {
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: rgba(244, 244, 245, 0.6);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.card__close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--fg);
+}
+
+.card__text {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.card__button {
+  height: 28px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: none;
+  color: var(--fg);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.card__button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.card__button--primary {
+  border-color: transparent;
+  background: var(--fg);
+  color: #141416;
+}
+
+.card__button--primary:hover {
+  background: #ffffff;
+}

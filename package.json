@@ -1,0 +1,33 @@
+{
+  "name": "digitai",
+  "productName": "DigitAI",
+  "version": "0.1.0",
+  "description": "Digitação por voz em qualquer app: segure o atalho, fale e o texto aparece onde está o cursor.",
+  "private": true,
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "postinstall": "node node_modules/electron/install.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0",
+    "dotenv": "^18.0.8",
+    "koffi": "^2.16.3"
+  },
+  "devDependencies": {
+    "@fontsource-variable/instrument-sans": "^5.3.0",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "electron": "^44.7.2",
+    "electron-vite": "^6.0.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4"
+  }
+}
